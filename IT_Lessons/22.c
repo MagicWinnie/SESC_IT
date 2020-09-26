@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int summ(a, n)
+int summ(int a, int n)
 {
     int a1 = 0;
     for (int i = 0; i < n; i++)
