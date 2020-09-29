@@ -20,7 +20,6 @@ int main()
     double n, res = 0;
     scanf("%lf", &n);
 
-
     for (int i = 0; i <= 10; i++)
     {
         res += (double)pow(n, i)/(double)factorial(i);

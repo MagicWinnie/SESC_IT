@@ -20,8 +20,7 @@ int main()
     double n, res = 0;
     scanf("%lf", &n);
 
-
-    for (int i = 0; i <= 30; i++)
+    for (int i = 0; i <= 20; i++)
     {
         res += (double)1/(double)factorial(i);
     }
