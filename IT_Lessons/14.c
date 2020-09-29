@@ -26,18 +26,16 @@ int main()
     if ((a + b > c) && (b + c > a) && (a + c > b))
     {
         if (a == b || b == c || a == c)
-            printf("Равнобедренный");
+            printf("Равнобедренный\n");
         else if (a == b && b== c)
-            printf("Правильный");
-        else if (c*c == a*a + b*b)
-            printf("Прямоугольный");
+            printf("Правильный\n");
+        if (c*c == a*a + b*b)
+            printf("Прямоугольный\n");
         else if (c*c > a*a + b*b)
-            printf("Тупоугольный");
+            printf("Тупоугольный\n");
         else
-            printf("Остроугольный");
+            printf("Остроугольный\n");
     } else {
-        printf("Не существует");
-    }
-    printf("\n");
-        
+        printf("Не существует\n");
+    }        
 }
