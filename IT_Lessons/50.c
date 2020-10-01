@@ -3,27 +3,37 @@
 #include <time.h>
 #include <math.h>
 
+void printArr(int *arr, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
 int main()
 {
     int size = 10, count = 0;
-    int arr[size];
+    int arr1[size], arr2[size], arr3[size*2];
 
     // filling array
     srand(time(NULL));
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < size; i++)
     {
-        arr[i] = (rand() % (10 - 1 + 1)) + 1;
+        arr1[i] = (rand() % (10 - 1 + 1)) + 1;
+        arr2[i] = (rand() % (10 - 1 + 1)) + 1;
     }
 
-    for (int i = 0; i < 10-1; i++)
-        if (arr[i] > arr[i+1]) count++;
+    printArr(arr1, size);
+    printArr(arr2, size);
 
-    //printing array
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < size; i++)
     {
-        printf("%d ", arr[i]);
+        arr3[i] = arr1[i];
+        arr3[i+size] = arr2[i];
     }
-
-    printf("\n%d\n", count);
+    
+    printArr(arr3, size*2);
 }

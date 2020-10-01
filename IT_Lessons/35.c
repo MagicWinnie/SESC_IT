@@ -2,53 +2,32 @@
 #include <math.h>
 #include <stdbool.h>
 
-int sum(int a, int b) 
+double sum(double a, double b) 
 { 
-    int temp;
-    while (b != 0) 
-    { 
-        temp = a & b;   
-        a = a ^ b;  
-        b = temp << 1; 
-    } 
-    return a; 
+    return a+b; 
 }
 
-int sub(int a, int b) 
+double sub(double a, double b) 
 { 
-    int temp;
-    while (b != 0) 
-    { 
-        temp = (~a) & b;   
-        a = a ^ b;  
-        b = temp << 1; 
-    } 
-    return a; 
+    return a-b; 
 }
 
-int mul(int a, int b) 
+double mul(double a, double b) 
 { 
-    int sign = ((a < 0) ^ (b < 0)) ? -1 : 1; 
-    int res = 0; 
+    return a*b; 
+}
 
-    a = abs(a);
-    b = abs(b);
-    
-    while (b > 0) 
-    { 
-        if (b & 1) 
-            res = sum(res, a);
-        a = a << 1; 
-        b = b >> 1; 
-    } 
-    return sign*res; 
+double division(double a, double b) 
+{ 
+    return a/b; 
 }
 
 int main()
 {
-    int a, b;
-    scanf("%d %d", &a, &b);
-    printf("%d\n", sum(a, b));
-    printf("%d\n", sub(a, b));
-    printf("%d\n", mul(a, b));
+    double a, b;
+    scanf("%lf %lf", &a, &b);
+    printf("%lf\n", sum(a, b));
+    printf("%lf\n", sub(a, b));
+    printf("%lf\n", mul(a, b));
+    printf("%lf\n", division(a, b));
 }

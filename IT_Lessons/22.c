@@ -17,6 +17,10 @@ int main()
 {
     int n, count = 0;
     scanf("%d", &n);
+    if (n%2!=0){
+        printf("неравное количество цифр\n");
+        return 0;
+    }
     for (int i = 0; i < pow(10, n); i++)
     {
         if (summ(i/(int)pow(10, n/2), n/2)==summ(i%(int)pow(10, n/2), n/2))
