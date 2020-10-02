@@ -18,9 +18,6 @@ int main()
     } else 
     {
         printf("%lf\n", (double)((-b+d)/(2*a)));
-        printf("%lf", (double)((-b-d)/(2*a)));
-    }
-        
-    printf("\n");
-        
+        printf("%lf\n", (double)((-b-d)/(2*a)));
+    }        
 }
