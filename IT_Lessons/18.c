@@ -14,11 +14,11 @@ int main()
 
     if (d < 0)
     {
-        printf("Корней нет");
+        printf("Корней нет\n");
         return 0;
     } else if (d == 0)
     {
-        printf("%lf", (double)(-b/(2*a)));
+        printf("%lf\n", (double)(-b/(2*a)));
     } else 
     {
         printf("%lf\n", (double)((-b+d)/(2*a)));
