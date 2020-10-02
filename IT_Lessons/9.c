@@ -5,11 +5,11 @@ int main()
     int a, b, c, d;
     scanf("%d %d %d %d", &a, &b, &c, &d);
     
-    if (a > b && a > c && a > d)
+    if (a >= b && a >= c && a >= d)
         printf("%d", a); 
-    else if (b > a && b > c && b > d)
+    else if (b >= a && b >= c && b >= d)
         printf("%d", b);
-    else if (c > d && c > a && c > b)
+    else if (c >= d && c >= a && c >= b)
         printf("%d", c);
     else
         printf("%d", d);
