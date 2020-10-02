@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <math.h>
 
@@ -5,7 +6,10 @@ int main()
 {
     double a, b, c, d;
     scanf("%lf %lf %lf", &a, &b, &c);
-    
+    if (a==0){
+        printf("а не может быть равно 0\n"); 
+        return 0;
+    }
     d = sqrt(b*b - 4*a*c);
 
     if (d < 0)
