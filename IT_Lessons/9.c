@@ -2,17 +2,14 @@
 
 int main()
 {
-    int a, b, c, d;
-    scanf("%d %d %d %d", &a, &b, &c, &d);
     
-    if (a >= b && a >= c && a >= d)
-        printf("%d", a); 
-    else if (b >= a && b >= c && b >= d)
-        printf("%d", b);
-    else if (c >= d && c >= a && c >= b)
-        printf("%d", c);
-    else
-        printf("%d", d);
-    printf("\n");
-        
+    int num, n, m=-9999;
+    scanf("%d", &n);
+    
+    for(int i = 0; i < n; i++)
+    {
+        scanf("%d", &num);
+        if(num > m) m = num;
+    }
+    printf("%d\n", m);       
 }
