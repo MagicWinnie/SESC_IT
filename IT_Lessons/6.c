@@ -11,12 +11,16 @@ bool isPrime(int n)
 
 int main()
 {
-    int n;
+    int n, i = 1;
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
+    while (i*i <= n)
     {
         if (n%i==0 && isPrime(i))
             printf("%d ", i);
+        if (n%(n/i)==0 && isPrime(n/i))
+            printf("%d ", n/i);
+        
+        i++;
     }
     printf("\n");
         
