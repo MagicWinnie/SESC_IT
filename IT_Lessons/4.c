@@ -2,13 +2,11 @@
 
 int main()
 {
-    int n;
+    int n, d = 1;
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
-    {
-        if (n%i==0)
-            printf("%d ", i);
+    while (d*d <= n){
+        if (n%d == 0) printf("%d %d ", d, n/d);
+        d++;
     }
     printf("\n");
-        
 }
