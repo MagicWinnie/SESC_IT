@@ -14,26 +14,35 @@ void printArr(int *arr, int size)
 
 int main()
 {
-    int size = 10, count = 0;
-    int arr1[size], arr2[size], arr3[size*2];
+    int size1, size2, count = 0;
+    scanf("%d %d", &size1, &size2);
+    int arr1[size1], arr2[size2], arr3[size1+size2];
 
     // filling array
     srand(time(NULL));
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size1; i++)
     {
         arr1[i] = (rand() % (10 - 1 + 1)) + 1;
+    }
+
+    for (int i = 0; i < size2; i++)
+    {
         arr2[i] = (rand() % (10 - 1 + 1)) + 1;
     }
 
-    printArr(arr1, size);
-    printArr(arr2, size);
+    printArr(arr1, size1);
+    printArr(arr2, size2);
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size1; i++)
     {
         arr3[i] = arr1[i];
-        arr3[i+size] = arr2[i];
     }
     
-    printArr(arr3, size*2);
+    for (int i = 0; i < size2; i++)
+    {
+        arr3[i+size1] = arr2[i];
+    }
+
+    printArr(arr3, size1+size2);
 }

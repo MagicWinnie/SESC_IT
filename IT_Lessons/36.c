@@ -2,12 +2,12 @@
 
 int conjunction(int a, int b)
 {
-    return a&b;
+    return a&&b;
 }
 
 int disjunction(int a, int b)
 {
-    return a|b;
+    return a||b;
 }
 
 int main()
