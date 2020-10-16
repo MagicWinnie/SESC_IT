@@ -1,10 +1,9 @@
 #include <stdio.h>
+#include <math.h>
 
 int fib(int n)
 {
-    if (n == 1 || n == 2)
-        return 1;
-    return fib(n-1) + fib(n-2);
+    return (pow((1.0+sqrt(5))/2, (double)n) - pow((1.0-sqrt(5))/2, (double)n))/sqrt(5) + 1e-9;
 }
 
 int main()
