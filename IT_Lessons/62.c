@@ -14,6 +14,7 @@ int main()
 {
     int n, k;
     int** arr = (int**)malloc(2*sizeof(int*));
+
     arr[0] = (int*)malloc(3*sizeof(int));
     arr[1] = (int*)malloc(4*sizeof(int));
 
@@ -38,12 +39,13 @@ int main()
         for (int i = 3; i <= n; i++)
         {
             arr[1] = (int*)realloc(arr[1], (i+1)*sizeof(int));
+    
             arr[1][0] = 1;
             arr[1][i] = 1;
+    
             for (int j = 1; j < i; j++)
-            {
-                arr[1][j] = arr[0][j-1]+arr[0][j];
-            }           
+                arr[1][j] = arr[0][j-1]+arr[0][j];     
+    
             arr[0] = (int*)realloc(arr[0], (i+1)*sizeof(int));
             memcpy(arr[0], arr[1], sizeof(int)*(i+1));
         }
