@@ -17,7 +17,6 @@ double power(int x, int y)
     return 1/res;
 }  
   
-
 int main()
 {
     double a, b;
