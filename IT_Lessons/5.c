@@ -4,7 +4,7 @@
 bool isPrime(int n)
 {
     int d = 2;
-    while (d*d <= n && n%d != 0)
+    while (d*d <= n && n % d != 0)
         d++;
     return d*d > n;
 }

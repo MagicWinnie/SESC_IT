@@ -27,7 +27,7 @@ int main()
     {
         if (a == b || b == c || a == c)
             printf("Равнобедренный\n");
-        else if (a == b && b== c)
+        else if (a == b && b == c)
             printf("Правильный\n");
         if (c*c == a*a + b*b)
             printf("Прямоугольный\n");

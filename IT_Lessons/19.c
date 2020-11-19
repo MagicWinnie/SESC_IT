@@ -10,6 +10,7 @@ int main()
             printf("FIZZ\n");
         else if (i%5==0)
             printf("BUZZ\n");
+        else printf("%d\n", i);
     }
 
     printf("\n");

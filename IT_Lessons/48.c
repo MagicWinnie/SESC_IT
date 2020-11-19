@@ -13,23 +13,23 @@ int main()
     // filling array
     srand(time(NULL));
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < size; i++)
     {
         arr[i] = (rand() % (10 - 1 + 1)) + 1;
     }
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < size; i++)
     {
         sum += arr[i];
         mul *= arr[i];
     }
 
     //printing array
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < size; i++)
     {
         printf("%d ", arr[i]);
     }
 
     printf("\nArithmetic mean: %lf\n", (double)sum/size);
-    printf("\nGeometric mean: %lf\n", pow((double)mul, (double)1/size));
+    printf("Geometric mean: %lf\n", pow((double)mul, (double)1/size));
 }

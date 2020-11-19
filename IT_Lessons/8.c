@@ -3,13 +3,10 @@
 int main()
 {
     
-    int num, n, m=-9999;
-    scanf("%d", &n);
-    
-    for(int i = 0; i < n; i++)
-    {
-        scanf("%d", &num);
-        if(num > m) m = num;
-    }
-    printf("%d\n", m);       
+    int a, b, c, max;
+    scanf("%d %d %d", &a, &b, &c);
+    max = a;
+    if (b > max) max = b;
+    if (c > max) max = c;
+    printf("%d\n", max);       
 }

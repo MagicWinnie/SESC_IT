@@ -6,7 +6,7 @@ int main()
 {
     double a, b, c, d;
     scanf("%lf %lf %lf", &a, &b, &c);
-    if (a==0){
+    if (a == 0){
         printf("а не может быть равно 0\n"); 
         return 0;
     }

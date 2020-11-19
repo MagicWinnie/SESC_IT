@@ -11,16 +11,16 @@ int main()
     // filling array
     srand(time(NULL));
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < size; i++)
     {
         arr[i] = (rand() % (10 - 1 + 1)) + 1;
     }
 
-    for (int i = 0; i < 10-1; i++)
+    for (int i = 0; i < size-1; i++)
         if (arr[i] > arr[i+1]) count++;
 
     //printing array
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < size; i++)
     {
         printf("%d ", arr[i]);
     }

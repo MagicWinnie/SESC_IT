@@ -2,14 +2,16 @@
 
 int main()
 {
+    int a, b, c, d, max1, max2, max3;
+    scanf("%d %d %d %d", &a, &b, &c, &d);
+    if (a > b) max1 = a;
+    else max1 = b;
+
+    if (c > d) max2 = c;
+    else max2 = d;
     
-    int num, n, m=-9999;
-    scanf("%d", &n);
-    
-    for(int i = 0; i < n; i++)
-    {
-        scanf("%d", &num);
-        if(num > m) m = num;
-    }
-    printf("%d\n", m);       
+    if (max1 > max2) max3 = max1;
+    else max3 = max2;
+    printf("%d\n", max3);
 }
+
