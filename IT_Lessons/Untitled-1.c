@@ -29,17 +29,11 @@ int max_elem(int *arr, int n)
             m = i;
     }
     if (n - 1 == -1) n = 1;
-    // printf("B %d %d %d %d\n", arr[m], arr[n-1], m, n-1);
+    printf("B %d %d %d %d\n", arr[m], arr[n-1], m, n-1);
     swap(&arr[n-1], &arr[m]);
-    // printf("A %d %d %d %d\n", arr[m], arr[n-1], m, n-1);
+    printf("A %d %d %d %d\n", arr[m], arr[n-1], m, n-1);
     // printArr(arr, n);
     return n-1;
-}
-
-void insert(int val, int pos, int n, int *arr) {
-    for (int c = 0; c <= pos; c++)
-        arr[c] = arr[c + 1];
-    arr[pos] = val;
 }
 
 int main()
@@ -67,8 +61,8 @@ int main()
     n_1 = size1;
     n_2 = size2;
 
-    printf("ARR_1: "); printArr(arr1, size1);
-    printf("ARR_2: "); printArr(arr2, size2);
+    printArr(arr1, size1);
+    printArr(arr2, size2);
 
     int i = size1+size2-1;
     while (n_1 > 0)
@@ -83,18 +77,34 @@ int main()
     while (n_2 > 0)
     {
         int max_2 = max_elem(arr2, n_2);
-        for (int j = i; j >= 0; j--)
+        if (i > last_i) 
         {
-            if (arr2[max_2] >= arr3[j])
-            {
-                insert(arr2[max_2], j, size1+size2, arr3);
-                printArr(arr3, size1+size2);
-                break;
-            }
+            if (arr3[i])
         }
-        n_2--;
-        i--;
+        arr3[i] = 
+    }
+        // int max_2 = max_elem(arr2, n_2);
+        // if (arr1[max_1] > arr2[max_1])
+        // {
+        //     printf("first if\n");
+        //     arr3[i] = arr1[max_1];
+        //     i--;
+        //     arr3[i] = arr2[max_2];
+        //     n_1--;
+        //     n_2--;
+        //     i--;
+        //     printArr(arr3, size1+size2);
+        // } else {
+        //     printf("second if\n");
+        //     arr3[i] = arr2[max_2];
+        //     i--;
+        //     arr3[i] = arr1[max_1];
+        //     n_1--;
+        //     n_2--;
+        //     i--;
+        //     printArr(arr3, size1+size2);
+        // }
     }
 
-    printf("ARR_3: "); printArr(arr3, size1+size2);
+    printArr(arr3, size1+size2);
 }

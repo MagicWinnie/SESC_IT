@@ -1,41 +1,29 @@
 #include <stdio.h>
 
+void swap(int *x, int *y)
+{
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
 
 int main()
 {
-    int tA, tB, tC, a, b, c;
+    int a, b, c;
 
-    scanf("%d %d %d", &tA, &tB, &tC);
+    scanf("%d %d %d", &a, &b, &c);
 
-    if (tA > tB && tA > tC)
-    {
-        a = tC;
-        b = tB;
-        c = tA;
-    } else if (tB > tA && tB > tC)
-    {
-        a = tC;
-        b = tA;
-        c = tB;
-    } else
-    {
-        a = tB;
-        b = tA;
-        c = tC;
-    }
+    if (a > c) swap(&a, &c);
+    if (a > b) swap(&a, &b);
+    if (b > c) swap(&b, &c);
+
     if ((a + b > c) && (b + c > a) && (a + c > b))
     {
-        if (a == b || b == c || a == c)
-            printf("Равнобедренный\n");
-        else if (a == b && b == c)
-            printf("Правильный\n");
-        if (c*c == a*a + b*b)
-            printf("Прямоугольный\n");
-        else if (c*c > a*a + b*b)
-            printf("Тупоугольный\n");
-        else
-            printf("Остроугольный\n");
-    } else {
-        printf("Не существует\n");
-    }        
+        if      (a == b || b == c || a == c) printf("Isosceles\n");
+        else if (a == b && b == c)           printf("Equilateral\n");
+        if      (c * c == a * a + b * b)     printf("Right\n");
+        else if (c * c > a * a + b * b)      printf("Scalene\n");
+        else                                 printf("Acute\n");
+    } 
+    else printf("Impossible\n");        
 }

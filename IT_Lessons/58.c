@@ -10,7 +10,6 @@ void sieveEratos(int n)
     {
         if (a[i])
         {
-            int j = 0, k = 0;
             for (int j = i*i; j<=n; j+=i)
                 a[j] = false;            
         }

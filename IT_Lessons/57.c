@@ -23,7 +23,7 @@ int main()
     for (int i = 0; i < size; i++)
         printf("%d ", arr[i]);
         
-    if(size%2==0)
+    if (size%2==0)
         printf("\n%lf\n", (double)((arr[size/2] + arr[size/2-1])/2.0));
     else
         printf("\n%d\n", arr[size/2]);

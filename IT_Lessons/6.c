@@ -19,7 +19,6 @@ int main()
             printf("%d ", i);
         if (n % (n/i) == 0 && isPrime(n/i))
             printf("%d ", n/i);
-        
         i++;
     }
     printf("\n");

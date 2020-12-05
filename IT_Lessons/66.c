@@ -93,6 +93,16 @@ struct list *deleteVal(struct list *head, int val)
     return head;
 }
 
+struct list *sortList(struct list *head)
+{
+    
+}
+
+int isCycled(struct list *head)
+{
+
+}
+
 int main()
 {
     struct list *head = NULL;
