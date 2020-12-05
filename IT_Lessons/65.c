@@ -46,7 +46,7 @@ void sortStudents(struct Student Students[], int type)
                 }
                 break;
             case 2:
-                if (*Students[j].name > *Students[j+1].name)
+                if (strcmp(Students[j].name, Students[j+1].name) >= 0)
                 {
                     temp = Students[j];
                     Students[j] = Students[j+1];
