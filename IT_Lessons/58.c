@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 
 void sieveEratos(int n)
 {
-    bool a[n+1];
+    bool *a = (bool*)malloc((n + 1) * sizeof(bool));
     for (int i = 0; i <= n; i++)
         a[i] = true;
     for (int i = 2; i*i <= n; i++)
