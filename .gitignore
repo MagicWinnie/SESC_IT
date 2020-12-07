@@ -1,4 +1,4 @@
 *.o
 ____*
-settings.json
+.vscode/*
 test*
