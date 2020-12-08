@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-void getNextArr(unsigned long long arr[], unsigned long long size)
+void getNextArr(unsigned long long arr[], unsigned size)
 {
     unsigned long long *tempArr = (unsigned long long*)malloc(size * sizeof(unsigned long long));
     for (int i = 0; i < size; i++) tempArr[i] = arr[i];
@@ -25,7 +25,7 @@ unsigned long long luckyTickets(int n)
     for (unsigned long long i = 0; i < 10; i++) arr[i] = 1;
 
     unsigned long long result = 0;
-    int size = 10;
+    unsigned size = 10;
     
     for (int i = 0; i < n / 2 - 1; i++)
     {   
