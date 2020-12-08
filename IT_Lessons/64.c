@@ -1,56 +1,48 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 
-void print(int **arr, int m, int n)
+void print(unsigned long long *arr, int n)
 {
-    printf("-------------------\n%d\n", m);
+    printf("-------------------\n");
     for (int j = 0; j < n; j++)
-        printf("%d ", arr[m][j]);
+        printf("%d ", arr[j]);
     printf("\n-------------------\n");
 }
 
 int main()
 {
     int n, k;
-    int** arr = (int**)malloc(2*sizeof(int*));
-
-    arr[0] = (int*)malloc(3*sizeof(int));
-    arr[1] = (int*)malloc(4*sizeof(int));
-
-    arr[0][0] = 1;
-    arr[0][1] = 2;
-    arr[0][2] = 1;
     
-    scanf("%d %d", &n, &k);
+    FILE *fin = fopen("64.txt", "r");
+    FILE *fout = fopen("64.out", "w");
+
+    fscanf(fin, "%d %d", &n, &k);
+    fclose(fin);
+
+    unsigned long long* arr = (unsigned long long*)calloc(n + 1, sizeof(unsigned long long));
 
     if (k > n)
     {
-        printf("K cannot be greater than N\n");
+        fprintf(fout, "K cannot be greater than N\n");
         return -1;
     }
-    if (k < 0 || n < 0)
+    if (k < 0 || n <= 0)
     {
-        printf("K or N cannot be lower than 0\n");
+        fprintf(fout, "K or N cannot be lower than 0\n");
         return -1;
     }
-    if (n == 0 || n == 1 || k == 0 || k == n) printf("1\n");
+    if (k == 0 || k == n) fprintf(fout, "1\n");
     else {
-        for (int i = 3; i <= n; i++)
+        arr[0] = 1;
+        for (int j = 1; j <= n; j++)
         {
-            arr[1] = (int*)realloc(arr[1], (i+1)*sizeof(int));
-    
-            arr[1][0] = 1;
-            arr[1][i] = 1;
-    
-            for (int j = 1; j < i; j++)
-                arr[1][j] = arr[0][j-1]+arr[0][j];     
-    
-            arr[0] = (int*)realloc(arr[0], (i+1)*sizeof(int));
-            memcpy(arr[0], arr[1], sizeof(int)*(i+1));
+            for (int i = j; i >= 1; i--)
+                arr[i] = arr[i - 1] + arr[i];
+            // print(arr, n + 1);
         }
-        printf("%d\n", arr[0][k]);
+        fprintf(fout, "%llu\n", arr[k]);
     }
+    fclose(fout);
     free(arr);
     return 0;
 }

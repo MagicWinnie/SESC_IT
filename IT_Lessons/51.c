@@ -29,10 +29,7 @@ int max_elem(int *arr, int n)
             m = i;
     }
     if (n - 1 == -1) n = 1;
-    // printf("B %d %d %d %d\n", arr[m], arr[n-1], m, n-1);
     swap(&arr[n-1], &arr[m]);
-    // printf("A %d %d %d %d\n", arr[m], arr[n-1], m, n-1);
-    // printArr(arr, n);
     return n-1;
 }
 
@@ -44,33 +41,23 @@ void insert(int val, int pos, int n, int *arr) {
 
 int main()
 {
-    int size1, size2, n_1, n_2;
-    scanf("%d %d", &size1, &size2);
-    // int arr1[size1], arr2[size2], arr3[size1+size2];
-    int *arr1 = (int*)malloc(size1*sizeof(int));
-    int *arr2 = (int*)malloc(size2*sizeof(int));
-    int *arr3 = (int*)malloc((size1+size2)*sizeof(int));
+    int size1 = 9;
+    int size2 = 5;
+    int size3 = size1 + size2;
+    
+    int arr1[] = {7, 3, 7, 5, 2, 3, 10, 3, 1};
+    int arr2[] = {8, 8, 1, 5, 11};
 
-    // filling array
-    srand(time(NULL));
+    int *arr3 = (int*)calloc(size3, sizeof(int));
 
-    for (int i = 0; i < size1; i++)
-    {
-        arr1[i] = (rand() % (10 - 1 + 1)) + 1;
-    }
-
-    for (int i = 0; i < size2; i++)
-    {
-        arr2[i] = (rand() % (10 - 1 + 1)) + 1;
-    }
-
-    n_1 = size1;
-    n_2 = size2;
+    int n_1 = size1;
+    int n_2 = size2;
 
     printf("ARR_1: "); printArr(arr1, size1);
     printf("ARR_2: "); printArr(arr2, size2);
 
-    int i = size1+size2-1;
+    int i = size3 - 1;
+
     while (n_1 > 0)
     {
         int max_1 = max_elem(arr1, n_1);
@@ -78,8 +65,10 @@ int main()
         n_1--;
         i--;
     }
+    
     int last_i = i;
-    i = size1+size2-1;
+    i = size3 - 1;
+    
     while (n_2 > 0)
     {
         int max_2 = max_elem(arr2, n_2);
@@ -87,8 +76,7 @@ int main()
         {
             if (arr2[max_2] >= arr3[j])
             {
-                insert(arr2[max_2], j, size1+size2, arr3);
-                printArr(arr3, size1+size2);
+                insert(arr2[max_2], j, size3, arr3);
                 break;
             }
         }
@@ -96,5 +84,5 @@ int main()
         i--;
     }
 
-    printf("ARR_3: "); printArr(arr3, size1+size2);
+    printf("ARR_3: "); printArr(arr3, size3);
 }

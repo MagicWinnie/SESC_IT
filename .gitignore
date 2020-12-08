@@ -1,4 +1,4 @@
 *.o
-____*
+*.exe
 .vscode/*
 test*
