@@ -36,7 +36,6 @@ unsigned long long luckyTickets(int n)
 
     for (int i = 0; i < size; i++)
         result += arr[i] * arr[i];
-
     return result;
 }
 

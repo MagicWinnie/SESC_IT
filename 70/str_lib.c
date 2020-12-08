@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include "str_lib.h"
 
 size_t strlen(const char* s)
 {
@@ -61,22 +61,4 @@ char *strstr(const char *haystack, const char *needle)
     } while (*haystack && *needle);
     
     return NULL;
-}
-
-int main()
-{
-    const char* s = "Hello World!";
-    char s1[32];
-    s1[0] = '\0';
-    printf("Size: %d\n", strlen(s));
-    printf("Before cpy: %s\n", s1);
-    strcpy(s1, s);
-    printf("After cpy: %s\n", s1);
-    char s2[20] = "Hello";
-    char s3[20] = "hello";
-    char *s4 = "ll";
-    printf("Strcmp: %d\n", strcmp(s2, s3));
-    printf("Strcat: %s\n", strcat(s2, s3));
-    printf("Strstr: %s\n", strstr(s2, s4));
-    return 0;
 }
