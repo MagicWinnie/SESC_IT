@@ -93,14 +93,77 @@ struct list *deleteVal(struct list *head, int val)
     return head;
 }
 
-struct list *sortList(struct list *head)
+struct list *mergeList(struct list *a, struct list *b) 
+{ 
+    struct list *res = NULL; 
+  
+    if (a == NULL) return b; 
+    else if (b == NULL) return a; 
+  
+    if (a->val <= b->val)
+    { 
+        res = a; 
+        res->next = mergeList(a->next, b); 
+    } else { 
+        res = b; 
+        res->next = mergeList(a, b->next); 
+    } 
+    return res; 
+} 
+
+void *splitList(struct list *head, struct list **f, struct list **e)
 {
-    
+    struct list* q; 
+    struct list* s; 
+    s = head; 
+    q = head->next; 
+  
+    while (q != NULL) { 
+        q = q->next; 
+        if (q != NULL) { 
+            s = s->next; 
+            q = q->next; 
+        } 
+    } 
+  
+    *f = head; 
+    *e = s->next; 
+    s->next = NULL; 
+}
+
+struct list *sortList(struct list *head)
+{    
+    struct list *a;
+    struct list *b;
+    struct list *temp = head;
+
+    if (temp == NULL || temp->next == NULL) return temp;
+
+    splitList(temp, &a, &b);
+
+    struct list *new_a = sortList(a);
+    struct list *new_b = sortList(b);
+
+    return mergeList(new_a, new_b);
 }
 
 int isCycled(struct list *head)
-{
+{   
+    if (head == NULL || head->next == NULL)
+        return -1;
+    struct list *slow = head;
+    struct list *fast = head;
+    
+    int ind = 0;
 
+    while (slow != NULL && fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+ 
+        if (slow == fast) return ind;
+        ind++;
+    }
+    return -1;
 }
 
 int main()
@@ -115,7 +178,12 @@ int main()
     head = deleteVal(head, 2);
     print_list(head);
     head = addVal(head, 12, 2);
+    head = addVal(head, 0, 4);
     print_list(head);
+    head = sortList(head);
+    print_list(head);
+    head->next->next->next->next = head->next->next->next;
+    printf("%d\n", isCycled(head));
     deleteAll(head);
     return 0;
 }
