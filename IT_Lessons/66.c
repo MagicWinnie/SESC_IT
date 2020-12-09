@@ -169,6 +169,7 @@ int isCycled(struct list *head)
 int main()
 {
     struct list *head = NULL;
+    head = add2front(head, -1);
     head = add2end(head, 10);
     head = add2front(head, 2);
     head = add2front(head, 1);

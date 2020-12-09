@@ -20,45 +20,45 @@ char *strcpy(char *toHere, const char *fromHere)
 
 int strcmp(const char *s1, const char *s2)
 {
-    int i = 0;
-    for(i = 0; s1[i] == s2[i] && s1[i] == '\0'; i++);
-    if(s1[i] < s2[i])
+    int i = 0; 
+    while (s1[i] != '\0') 
+    { 
+        if (s1[i] == '\0') return 1;
+        else if (s1[i] < s2[i]) return -1;
+        else if (s1[i] > s2[i]) return 1;
+        i++; 
+    }
+    if (s2[i] == '\0')
+        return 0;
+    else 
         return -1;
-    else if(s1[i] > s2[i])
-        return 1;
-    return 0;
 }
 
 char *strcat(char *dest, const char *src)
 {
-    int i = 0, j = 0;
-    for (i = 0; src[i] != '\0'; ++i);
-    j = 0;
-    while (src[j] != '\0')
-    {
-        dest[i] = src[j];
-        i++;
-        j++;
-    }
-    dest[i] = '\0';
+    int i, j;
+	i = strlen(dest);
+	for (j = 0; src[j] != '\0'; i++, j++) {
+		dest[i] = src[j];
+	}
+	dest[i] = '\0';
     return dest;
 }
 
 char *strstr(const char *haystack, const char *needle)
 {
-    const char *temp_h = haystack;
-    const char *temp_n = needle;
-    do {
-        if (*haystack == *needle)
+    while (*haystack)
+    {
+        char *b = haystack;
+        char *p = needle;
+        while (*haystack && *p && *haystack == *p)
         {
             haystack++;
-            needle++;
-        } else 
-        {
-            haystack++;
-            needle = temp_n;
-        } 
-    } while (*haystack && *needle);
-    
+            p++;
+        }
+        if (!*p) return b;
+
+        haystack = b + 1;
+    }    
     return NULL;
 }
