@@ -64,8 +64,8 @@ struct list *addVal(struct list *head, int num, int ind)
     right = head;
     for (int i = 0; i < ind; i++)
     {
-        left=right;
-        right=right->next;
+        left = right;
+        right = right->next;
     }
     temp = (struct list*)malloc(sizeof(struct list));
     temp->val = num;
@@ -173,16 +173,25 @@ int main()
     head = add2end(head, 10);
     head = add2front(head, 2);
     head = add2front(head, 1);
+
     print_list(head);
+    
     head = add2end(head, 3);
     head = add2end(head, 4);
+    
     head = deleteVal(head, 2);
+    
     print_list(head);
+    
     head = addVal(head, 12, 2);
     head = addVal(head, 0, 4);
+    
     print_list(head);
+    
     head = sortList(head);
+    
     print_list(head);
+    
     head->next->next->next->next = head->next->next->next;
     printf("%d\n", isCycled(head));
     deleteAll(head);
