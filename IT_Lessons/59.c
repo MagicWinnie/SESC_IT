@@ -3,15 +3,15 @@
 
 int main()
 {
-	double e1 = 1;
-	float e2 = 1;
-	while ((1 + e1 != 1) && (1 + e1/2 != 1))
-		e1 /= 2;
-	while ((1 + e2 != 1) && (1 + e2/2 != 1))
-		e2 /= 2;
-	printf("Double: %.16e\n", e1);
-	printf("Float: %.16e\n", e2);
+	double e1 = 1.0;
+	float e2 = 1.0f;
+	while ((1.0 + e1 != 1.0) && (1.0 + e1 / 2.0 != 1.0))
+		e1 /= 2.0;
+	while ((1.0f + e2 != 1.0f) && (1.0f + e2 / 2.0f != 1.0f))
+		e2 /= 2.0f;
+	printf("Double: %.16e\n", (double)e1);
+	printf("Float: %.16e\n", (float)e2);
 
-    printf("%lf\n%e\n%e\n%e\n", (double)1, 1 + e1/2, 1 + e1, 1 + e1 + e1/2);
+    printf("%e\n%e\n%e\n%e\n", 1.0, 1.0 + e1 / 2.0, 1.0 + e1, 1.0 + e1 + e1 / 2.0);
 	return 0;
 }
