@@ -19,7 +19,6 @@ vector<string> int2vec(int n)
     return res;
 }
 
-
 void print_vec(int n, int m, vector<vector<int>> arr)
 {
     for(int i = 0; i < n; i++){
@@ -53,14 +52,16 @@ int main()
 
     vector<vector<int>> arr(n2, vector<int>(n1));
     
-    for(int i = 0; i < n2; i++){
+    for (int i = 0; i < n2; i++){
         arr[i][0] = i;
     }
-    for(int i = 0; i < n1; i++){
+ 
+    for (int i = 0; i < n1; i++){
         arr[0][i] = i;
     }
-    for(int i = 1; i < n2; i++){
-        for(int j = 1; j < n1; j++){
+ 
+    for (int i = 1; i < n2; i++){
+        for (int j = 1; j < n1; j++){
             if (d2c[stoi(nums[i - 1])].find(name[j - 1]) != string::npos)
                 arr[i][j] = min(min(arr[i - 1][j] + 1, arr[i][j - 1] + 1), arr[i - 1][j - 1]);
 	        else
@@ -72,11 +73,11 @@ int main()
     
     int i = n2 - 1, j = n1 - 1;
 
-    while(i >= 0 && j >= 0){
-        if(arr[i][j] - arr[i][max(j - 1, 0)] == 1){
+    while (i >= 0 && j >= 0){
+        if (arr[i][j] - arr[i][max(j - 1, 0)] == 1){
             nums.erase(nums.begin() + j - 1);
             j--;
-        } else if(arr[i][j] - arr[max(0, i - 1)][j] == 1){
+        } else if (arr[i][j] - arr[max(0, i - 1)][j] == 1){
             nums.insert(nums.begin() + j, string(1, name[i - 1]));
             i--;
         } else {
