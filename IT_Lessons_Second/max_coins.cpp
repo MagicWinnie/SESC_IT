@@ -1,3 +1,4 @@
+// how many coins can you get
 #include <iostream>
 #include <algorithm>
 #include <cstdio>

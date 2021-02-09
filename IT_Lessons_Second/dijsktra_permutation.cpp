@@ -1,3 +1,4 @@
+// generate next alphabetic permutation using dijsktra algorithm
 #include <iostream>
 #include <vector>
 #include <algorithm>

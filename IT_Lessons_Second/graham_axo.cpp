@@ -1,3 +1,5 @@
+// change the first string with the least amount of
+// removals and additions using axo algorithm
 #include <iostream>
 #include <string>
 #include <algorithm>
