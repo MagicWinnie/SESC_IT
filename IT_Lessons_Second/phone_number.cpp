@@ -58,12 +58,20 @@ int main()
     while (i >= 0 && j >= 0){
         if (arr[i][j] - arr[max(0, i - 1)][j] == 1){
             cout << "INSERT '" << num[i - 1] << "' before " << j << endl;
+            cout << "BEFORE: " << name << endl;
+
             name.insert(j, 1, num[i - 1]);
             i--;
+            
+            cout << "AFTER: " << name << "\n\n";
         } else if (arr[i][j] - arr[i][max(j - 1, 0)] == 1){
-            cout << "DELETE at " << j - 1 << endl;
+            cout << "DELETE '" << name[j - 1] << "' at " << j - 1 << endl;
+            cout << "BEFORE: " << name << endl;
+
             name.erase(j - 1, 1);
             j--; 
+            
+            cout << "AFTER: " << name << "\n\n";
         } else {
             i--;
             j--;
