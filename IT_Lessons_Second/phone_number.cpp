@@ -43,13 +43,11 @@ int main()
     string name;
     cin >> name;
     
-    int num;
+    string num;
     cin >> num;
     
-    vector<string> nums = int2vec(num);
-    
     int n1 = name.length() + 1;
-    int n2 = nums.size() + 1;
+    int n2 = num.size() + 1;
 
     vector<vector<int>> arr(n2, vector<int>(n1));
     
@@ -63,7 +61,7 @@ int main()
  
     for (int i = 1; i < n2; i++){
         for (int j = 1; j < n1; j++){
-            if (d2c[stoi(nums[i - 1])].find(name[j - 1]) != string::npos)
+            if (d2c[num[i - 1] - '0'].find(name[j - 1]) != string::npos)
                 arr[i][j] = min(min(arr[i - 1][j] + 1, arr[i][j - 1] + 1), arr[i - 1][j - 1]);
 	        else
 	            arr[i][j] = min(arr[i - 1][j] + 1, arr[i][j - 1] + 1);
@@ -76,18 +74,17 @@ int main()
 
     while (i >= 0 && j >= 0){
         if (arr[i][j] - arr[i][max(j - 1, 0)] == 1){
-            nums.erase(nums.begin() + j - 1);
+            num.erase(num.begin() + j - 1);
             j--;
         } else if (arr[i][j] - arr[max(0, i - 1)][j] == 1){
-            nums.insert(nums.begin() + j, string(1, name[i - 1]));
+            num.insert(j, string(1, name[i - 1]));
             i--;
         } else {
             i--;
             j--;
         }
-        print_vec(nums);
     }
-    print_vec(nums, "");
+    cout << num << endl;
 	cout << arr[n2 - 1][n1 - 1] << endl;
     return 0;
 }
