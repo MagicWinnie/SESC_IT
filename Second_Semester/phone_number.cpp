@@ -5,6 +5,7 @@
 #include <cmath>
 #include <algorithm>
 #include <vector>
+#define PRIORITY 0
 
 using namespace std;
 
@@ -55,28 +56,56 @@ int main()
 
     while (i >= 0 && j >= 0)
     {
-        if (arr[i][j] - arr[max(0, i - 1)][j] == 1)
+        if (PRIORITY)
         {
-            cout << "INSERT '" << num[i - 1] << "' before " << j << endl;
-            cout << "\tBEFORE: " << name << endl;
+            if (arr[i][j] - arr[max(0, i - 1)][j] == 1)
+            {
+                cout << "INSERT '" << num[i - 1] << "' before " << j << endl;
+                cout << "\tBEFORE: " << name << endl;
 
-            name.insert(j, 1, num[i - 1]);
-            i--;
-            
-            cout << "\tAFTER: " << name << endl;
-        } else if (arr[i][j] - arr[i][max(j - 1, 0)] == 1)
+                name.insert(j, 1, num[i - 1]);
+                i--;
+                
+                cout << "\tAFTER: " << name << endl;
+            } else if (arr[i][j] - arr[i][max(j - 1, 0)] == 1)
+            {
+                cout << "DELETE '" << name[j - 1] << "' at " << j - 1 << endl;
+                cout << "\tBEFORE: " << name << endl;
+
+                name.erase(j - 1, 1);
+                j--; 
+
+                cout << "\tAFTER: " << name << endl;
+            } else
+            {
+                i--;
+                j--;
+            }
+        } else 
         {
-            cout << "DELETE '" << name[j - 1] << "' at " << j - 1 << endl;
-            cout << "\tBEFORE: " << name << endl;
+            if (arr[i][j] - arr[i][max(j - 1, 0)] == 1)
+            {
+                cout << "DELETE '" << name[j - 1] << "' at " << j - 1 << endl;
+                cout << "\tBEFORE: " << name << endl;
 
-            name.erase(j - 1, 1);
-            j--; 
+                name.erase(j - 1, 1);
+                j--; 
 
-            cout << "\tAFTER: " << name << endl;
-        } else
-        {
-            i--;
-            j--;
+                cout << "\tAFTER: " << name << endl;
+            } else if (arr[i][j] - arr[max(0, i - 1)][j] == 1)
+            {
+                cout << "INSERT '" << num[i - 1] << "' before " << j << endl;
+                cout << "\tBEFORE: " << name << endl;
+
+                name.insert(j, 1, num[i - 1]);
+                i--;
+                
+                cout << "\tAFTER: " << name << endl;
+            } else
+            {
+                i--;
+                j--;
+            }
         }
     }
 
