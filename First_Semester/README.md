@@ -97,3 +97,71 @@ N N+1 ... 2*N
 40.2\. [Calculate the exponent. Using another formula.](40-0.c)  
 41\. [Calculate the sine.](41.c)  
 42\. [Calculate the cosine.](42.c)  
+43\. [Fill an array with numbers from 1 to 100](43.c)  
+44\. [Fill an array with the following sequence. 2 4 6 ... 200](44.c)  
+45\. [Fill an array with the following sequence. 1 3 5 ... 199](45.c)  
+46\. [Fill an array with the following sequence. 1 2 4 8 ...](46.c)  
+47\. [Find the min and max value in an array.](47.c)  
+48\. [Arithmetic and geometric mean values.](48.c)  
+49\. [Get the amount of pairs where the left value is larger than the right.](49.c)  
+50\. [Merge two arrays.](50.c)  
+51\. [Merge two arrays so the final array is ascending. Do not use sorting algorithms.](51.c)  
+52\. [Shift the elements of an array by `N` positions.](52.c)  
+53\. [Reverse the array.](53.c)  
+54\. [Bubble sort.](54.c)  
+55\. [Insertion sort.](55.c)  
+56\. [Selection sort.](56.c)  
+57\. [Get the median value.](57.c)  
+58\. [Sieve of Eratosthenes.](58.c)  
+59\. [Calculate the machine epsilon (`ε`). Compare 1, 1 + `ε`/2, 1 + `ε` and 1 + `ε` + `ε`/2.](59.c)  
+60\. [Calculate the sum.](60.c)  
+```
+s = 0
+for i in range(1, 10001):
+    s += (-1)**n / n
+```
+in four ways:  
+    * summing from larger to smaller `n`  
+    * summing from smaller to larger `n`  
+    * summing from larger to smaller `n` separately positive and negative values  
+    * summing from smaller to larger `n` separately positive and negative values  
+61\. [[TODO] Find out what happens at an overflow.](61.c)  
+62\. [Swap](62.c)  
+63\. [Change int* through char*](63.c)
+```c
+#include <stdio.h>
+int main(void)
+{
+    int *a = (int *) malloc(sizeof(int));
+    char *b = a;
+    //*b = 123456789;
+    *(b) = ;
+    *(b+1) =;
+    *(b+2) =;
+    *(b+3) =;
+    printf("%d", *a);
+    return 0;
+}
+```  
+64\. [C(n, k). Use text files.](64.c)  
+65\. [Structs. Sorting an array of structs.](65.c)  
+66\. [Singly linked list. Create the following functions.](66.c)  
+```c
+struct List *addElement(struct List *head, int value, int typeOfAdding); //or 3(2) functions
+struct List *deleteElement(struct List *head, int value);
+void printList(struct List *head);
+void freeList(struct List *head);
+struct List *sortList(struct List *head); //merge sort
+int isCycled(struct List *head);
+```
+67\. [Doubly linked list.](67.c)  
+68\. [Binary search.](68.c)  
+69\. [Topological sorting of a graph.](69.c)  
+70\. [Strings. Create the following functions in your own library.](70/main.c)  
+```c
+size_t strlen(const char *);
+char *strcpy(char *toHere, const char *fromHere);
+int strcmp(const char *, const char *);
+char *strcat(char *dest, const char *src);
+char *strstr(const char *haystack, const char *needle);
+```
