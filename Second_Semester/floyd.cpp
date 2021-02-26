@@ -1,4 +1,4 @@
-// shortest path in graph using floyd algorithm
+// Shortest path in graph using floyd algorithm
 #include <iostream>
 #include <algorithm>
 #include <vector>

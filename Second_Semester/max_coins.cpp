@@ -1,4 +1,4 @@
-// how many max amount of coins can you get
+// How many max amount of coins can you get
 #include <iostream>
 #include <algorithm>
 #include <cstdio>

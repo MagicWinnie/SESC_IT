@@ -1,4 +1,4 @@
-// shortest path in graph using dijsktra algorithm
+// Shortest path in graph using dijsktra algorithm
 #include <iostream>
 #include <algorithm>
 #include <vector>

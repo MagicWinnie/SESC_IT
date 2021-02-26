@@ -1,3 +1,4 @@
+// Restore a permutation from the inversion table 
 #include <iostream>
 #include <vector>
 
@@ -33,7 +34,3 @@ int main()
     for (auto const &c: output) cout << c << " ";
     cout << endl;
 }
-
-// 12345 - 
-// 13110 - table
-// 51342 - output

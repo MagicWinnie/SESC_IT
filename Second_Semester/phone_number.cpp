@@ -1,4 +1,4 @@
-// mix the company with numbers
+// Mix the company with numbers
 #include <iostream>
 #include <string>
 #include <map>
