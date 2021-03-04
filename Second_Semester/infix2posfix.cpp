@@ -33,6 +33,7 @@ int main()
         if (isdigit(X) || isalpha(X))
         {
             output.push_back(X);
+            output.push_back(' ');
         } else if (X == '(')
         {
             stk.push(X);
@@ -47,19 +48,26 @@ int main()
                 } else
                 {
                     output.push_back(stk.pop());
+                    output.push_back(' ');
                 }
             }
         } else
         {
             while (!stk.empty() && prior[stk.top()] >= prior[X])
+            {
                 output.push_back(stk.pop());
+                output.push_back(' ');
+            }
             stk.push(X);
         }
         i++;
         if (i >= input.size()) 
         {
             while (!stk.empty())
+            {
                 output.push_back(stk.pop());
+                output.push_back(' ');
+            }
             break;
         }
     }
