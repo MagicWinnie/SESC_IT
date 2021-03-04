@@ -1,6 +1,5 @@
 // Stack is a linear list in which all inclusions and exclusions are made at one end of the list.
 #pragma once
-#include <iostream>
 template <class T>
 class StackClass
 {
@@ -15,7 +14,7 @@ class StackClass
     public:
         StackClass()
         {
-            S = (Stack *)malloc(sizeof(Stack));
+            S = new Stack; // (Stack *)malloc(sizeof(Stack));
             S->top = NULL;
         }
         T top()
@@ -32,7 +31,7 @@ class StackClass
             p = S->top;
             a = p->data;
             S->top = p->next;
-            free(p);
+            delete[] p;
             return a;
         }
         void push(T a)
@@ -54,8 +53,7 @@ class StackClass
             {
                 p = S->top;
                 S->top = p->next;
-                free(p);
+                delete[] p;
             }
-            std::cout << "CLEANING UP" << std::endl;
         }
 };
