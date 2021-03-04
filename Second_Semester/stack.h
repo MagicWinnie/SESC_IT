@@ -55,5 +55,6 @@ class StackClass
                 S->top = p->next;
                 delete[] p;
             }
+            delete[] S;
         }
 };
