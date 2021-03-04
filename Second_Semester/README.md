@@ -1,5 +1,6 @@
 <h1>Second semester, 10th grade</h1>
 <ol>
+<li><a href="calculationsOnStack.cpp">Calculations on a stack. count the value by its postfix notation.</a></li>
 <li><a href="dijsktra_permutation.cpp">Generate next alphabetic permutation using dijsktra algorithm.</a></li>
 <li><a href="dijsktra_shortest_path.cpp">Shortest path in graph using dijsktra algorithm.</a></li>
 <li><a href="floyd.cpp">Shortest path in graph using floyd algorithm.</a></li>
