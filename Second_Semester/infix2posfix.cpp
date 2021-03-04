@@ -44,15 +44,15 @@ int main()
                 {
                     stk.pop();
                     break;
-                } else {
+                } else
+                {
                     output.push_back(stk.pop());
                 }
             }
-        } else {
+        } else
+        {
             while (!stk.empty() && prior[stk.top()] >= prior[X])
-            {
                 output.push_back(stk.pop());
-            }
             stk.push(X);
         }
         i++;
