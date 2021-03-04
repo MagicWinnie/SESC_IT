@@ -1,5 +1,4 @@
-// Stack
-// It is a linear list in which all inclusions and exclusions are made at one end of the list.
+// Stack is a linear list in which all inclusions and exclusions are made at one end of the list.
 #pragma once
 #include <iostream>
 template <class T>
