@@ -1,6 +1,7 @@
 // Stack
 // It is a linear list in which all inclusions and exclusions are made at one end of the list.
-// #include <iostream>
+#pragma once
+#include <iostream>
 template <class T>
 class StackClass
 {
@@ -56,6 +57,6 @@ class StackClass
                 S->top = p->next;
                 free(p);
             }
-            // std::cout << "CLEANING UP" << std::endl;
+            std::cout << "CLEANING UP" << std::endl;
         }
 };
