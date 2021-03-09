@@ -21,7 +21,7 @@ for k, f in enumerate(FILES):
             else:
                 temp.append(data[i][2:])
         i += 1
-    temp = list(map(str.capitalize, temp))
+    temp = list(map(lambda x: x[0].capitalize() + x[1:], temp))
     temp = list(map(lambda x: x.replace('\n', ''), temp))
     temp_str = '. '.join(temp)
     if temp_str[-1] != '.': temp_str += '.'
