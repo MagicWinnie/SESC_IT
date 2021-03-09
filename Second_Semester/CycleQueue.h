@@ -1,18 +1,23 @@
-// Stack is a linear list in which all inclusions and exclusions are made at one end of the list.
+// Circular queue is a ...
 #pragma once
 template <class T>
-class StackClass
+class CycleQueueClass
 {
     private:
-        struct list
+        struct list 
         {
-            T data;
-            struct list *next;
+            int data;
+            struct list * next;
         };
-        typedef struct stack { struct list *top; } Stack;
+        typedef struct queue 
+        { 
+            struct list *first; 
+            struct list *end;
+        } Queue;
+
         Stack *S;
     public:
-        StackClass()
+        CycleQueueClass()
         {
             S = new Stack; // (Stack *)malloc(sizeof(Stack));
             S->top = NULL;
@@ -46,7 +51,7 @@ class StackClass
         {
             return (S->top == NULL);
         }
-        ~StackClass()
+        ~CycleQueueClass()
         {
             struct list *p;
             while (S->top)
