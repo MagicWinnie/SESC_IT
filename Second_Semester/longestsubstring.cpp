@@ -1,4 +1,4 @@
-// Solving task №25 from USE
+// Find the longest substring consisting of unique elements. 
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-    fstream f("input_25.txt");
+    fstream f("input_longest.txt");
     string input;
     unsigned int m = 0, count = 0;
     getline(f, input);
