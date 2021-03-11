@@ -4,62 +4,61 @@ template <class T>
 class CycleQueueClass
 {
     private:
-        struct list 
-        {
-            int data;
-            struct list * next;
-        };
-        typedef struct queue 
-        { 
-            struct list *first; 
-            struct list *end;
-        } Queue;
+        T *items;
+        size_t size, front = -1, rear = -1;
 
-        Stack *S;
     public:
-        CycleQueueClass()
+        CycleQueueClass(size_t size_)
         {
-            S = new Stack; // (Stack *)malloc(sizeof(Stack));
-            S->top = NULL;
+            items = new T[size_];
+            size = size_;
         }
-        T top()
+        bool isFull()
         {
-            if (S->top)
-                return (S->top->data);
+            if (front == 0 && rear == size - 1)
+                return true;
+            if (front == rear + 1)
+                return true;
+            return false;
+        }
+        bool isEmpty()
+        {
+            if (front == -1)
+                return true;
+            return false;
+        }
+        void push(T x)
+        {
+            if (isFull())
+                throw "Queue is full";
             else
-                throw "[IndexError] Stack is empty. Cannot get the top."; // return 0; // or raise an error, 'cause the stack is empty  
+            {
+                if (front == -1) front = 0;
+                rear = (rear + 1) % size;
+                items[rear] = x;
+            }
         }
         T pop()
         {
-            T a;
-            struct list *p;
-            p = S->top;
-            a = p->data;
-            S->top = p->next;
-            delete[] p;
-            return a;
-        }
-        void push(T a)
-        {
-            struct list *p;
-            p = new struct list; // (struct list *)malloc(sizeof(struct list));
-            p->data = a;
-            p->next = S->top;
-            S->top = p;
-        }
-        bool empty()
-        {
-            return (S->top == NULL);
+            if (isEmpty())
+            {
+                throw "Queue is empty";
+            } else
+            {
+                T x = items[front];
+                if (front == rear)
+                {
+                    front = -1;
+                    rear = -1;
+                } else 
+                {
+                    front = (front + 1) % size;
+                }
+                return x;
+            }
         }
         ~CycleQueueClass()
         {
-            struct list *p;
-            while (S->top)
-            {
-                p = S->top;
-                S->top = p->next;
-                delete[] p;
-            }
-            delete[] S;
+            delete[] items;
         }
 };
