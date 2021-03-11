@@ -4,6 +4,7 @@
 <li><a href="CircularBuffer.cpp">Circular buffer.</a></li>
 <li><a href="dijsktra_permutation.cpp">Generate next alphabetic permutation using dijsktra algorithm.</a></li>
 <li><a href="dijsktra_shortest_path.cpp">Shortest path in graph using dijsktra algorithm.</a></li>
+<li><a href="ege25.cpp">Task #25 from USE on IT.</a></li>
 <li><a href="floyd.cpp">Shortest path in graph using floyd algorithm.</a></li>
 <li><a href="graham_axo.cpp">Change the first string with the least amount of. Removals and additions using axo algorithm.</a></li>
 <li><a href="infix2posfix.cpp">Transform an infix notation to a prefix one.</a></li>
