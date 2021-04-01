@@ -46,28 +46,26 @@ class BinaryTree
                 t->right = new tree;
                 t->left->left = NULL;
                 t->left->right = NULL;
-            } else {
-                if (x < t->data)
-                {   
-                    if (t->left != NULL)
-                    {
-                        addRunner(x, t->left);
-                    } else {
-                        t->left = new tree;
-                        t->data = x;
-                        t->left->left = NULL;
-                        t->left->right = NULL;    
-                    }
+            } else if (x < t->data)
+            {   
+                if (t->left != NULL)
+                {
+                    addRunner(x, t->left);
                 } else {
-                    if (t->right != NULL)
-                    {
-                        addRunner(x, t->right);
-                    } else {
-                        t->right = new tree;
-                        t->data = x;
-                        t->right->left = NULL;
-                        t->right->right = NULL;
-                    }
+                    t->left = new tree;
+                    t->data = x;
+                    t->left->left = NULL;
+                    t->left->right = NULL;    
+                }
+            } else {
+                if (t->right != NULL)
+                {
+                    addRunner(x, t->right);
+                } else {
+                    t->right = new tree;
+                    t->data = x;
+                    t->right->left = NULL;
+                    t->right->right = NULL;
                 }
             }
         }
