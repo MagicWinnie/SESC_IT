@@ -1,5 +1,6 @@
 <h1>Second semester, 10th grade</h1>
 <ol>
+<li><a href="bintree.cpp">Simple binary tree.</a></li>
 <li><a href="calculationsOnStack.cpp">Calculations on a stack. Count the value by its postfix notation.</a></li>
 <li><a href="CircularBuffer.cpp">Circular buffer.</a></li>
 <li><a href="dijsktra_permutation.cpp">Generate next alphabetic permutation using dijsktra algorithm.</a></li>
