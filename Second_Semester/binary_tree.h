@@ -14,18 +14,27 @@ class BinaryTree
         } tree;
         tree *TREE;
         
-        void PrintTreeRunner(tree *t, std::string prefix, bool side)
+        void PrintTreeRunner(tree *t, std::string prefix, bool side, bool UTF)
         {
             if ((t->left != NULL) || (t->right != NULL))
             {
                 std::cout << prefix;
                 
-                std::cout << (side ? "├── " : "└── ");
+                if (UTF)
+                    std::cout << (side ? "├── " : "└── ");
+                else
+                    std::cout << (side ? "|--- " : "|___ ");
 
                 std::cout << t->data << std::endl;
 
-                PrintTreeRunner(t->left, prefix + (side ? "│   " : "    "), true);
-                PrintTreeRunner(t->right, prefix + (side ? "│   " : "    "), false);
+                if (UTF)
+                {
+                    PrintTreeRunner(t->left, prefix + (side ? "│   " : "    "), true, UTF);
+                    PrintTreeRunner(t->right, prefix + (side ? "│   " : "    "), false, UTF);
+                } else {
+                    PrintTreeRunner(t->left, prefix + (side ? "|   " : "    "), true, UTF);
+                    PrintTreeRunner(t->right, prefix + (side ? "|   " : "    "), false, UTF);
+                }
             }
         }
         void destroyTree(tree *t)
@@ -80,11 +89,11 @@ class BinaryTree
         {
             destroyTree(TREE);
         }
-        void printTree()
+        void printTree(char delimeter = '-', size_t delimeterSize = 36, bool UTF = true)
         {
-            std::cout << "-----------------------------------" << std::endl;
-            PrintTreeRunner(TREE, "", false);
-            std::cout << "-----------------------------------" << std::endl;
+            std::cout << std::string(delimeterSize, delimeter) << std::endl;
+            PrintTreeRunner(TREE, "", false, UTF);
+            std::cout << std::string(delimeterSize, delimeter) << std::endl;
         }
         void add(T x)
         {
