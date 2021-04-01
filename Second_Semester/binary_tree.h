@@ -29,11 +29,11 @@ class BinaryTree
 
                 if (UTF)
                 {
-                    PrintTreeRunner(t->left, prefix + (side ? "│   " : "    "), true, UTF);
-                    PrintTreeRunner(t->right, prefix + (side ? "│   " : "    "), false, UTF);
+                    PrintTreeRunner(t->left, prefix + (side ? "│   " : "     "), true, UTF);
+                    PrintTreeRunner(t->right, prefix + (side ? "│   " : "     "), false, UTF);
                 } else {
-                    PrintTreeRunner(t->left, prefix + (side ? "|   " : "    "), true, UTF);
-                    PrintTreeRunner(t->right, prefix + (side ? "|   " : "    "), false, UTF);
+                    PrintTreeRunner(t->left, prefix + (side ? "|   " : "     "), true, UTF);
+                    PrintTreeRunner(t->right, prefix + (side ? "|   " : "     "), false, UTF);
                 }
             }
         }
