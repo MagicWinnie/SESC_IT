@@ -14,8 +14,21 @@ int main()
     int columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
 
     BinaryTree<string> tree;
-    tree.add("23");
-    tree.add("22");
-    tree.add("32");
+    // tree.add("23");
+    // tree.add("22");
+    // tree.add("32");
+    // tree.add("21");
+    // tree.add("08");
+    // tree.add("17");
+    tree.add("*");
+    tree.add("4");
+    tree.add("7");
+    tree.add("6");
+    tree.add("+");
+    tree.add("5");
+    tree.add("-");
     tree.printTree('-', columns, true);
+    tree.printPrefix();
+    tree.printInfix();
+    tree.printPostfix();
 }

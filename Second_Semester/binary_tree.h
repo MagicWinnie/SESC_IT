@@ -78,6 +78,33 @@ class BinaryTree
                 }
             }
         }
+        void printInfixRunner(tree *t)
+        {
+            if ((t->left != NULL) || (t->right != NULL))
+            {
+                printInfixRunner(t->left);
+                std::cout << t->data << " ";
+                printInfixRunner(t->right);
+            }
+        }
+        void printPrefixRunner(tree *t)
+        {
+            if ((t->left != NULL) || (t->right != NULL))
+            {
+                std::cout << t->data << " ";
+                printInfixRunner(t->left);
+                printInfixRunner(t->right);
+            }
+        }
+        void printPostfixRunner(tree *t)
+        {
+            if ((t->left != NULL) || (t->right != NULL))
+            {
+                printInfixRunner(t->left);
+                printInfixRunner(t->right);
+                std::cout << t->data << " ";
+            }
+        }
     public:
         BinaryTree()
         {
@@ -98,5 +125,23 @@ class BinaryTree
         void add(T x)
         {
             addRunner(x, TREE);
+        }
+        void printPrefix(char delimeter = '-', size_t delimeterSize = 36)
+        {
+            std::cout << std::string(delimeterSize, delimeter) << std::endl;
+            printPrefixRunner(TREE);
+            std::cout << std::endl << std::string(delimeterSize, delimeter) << std::endl;
+        }
+        void printInfix(char delimeter = '-', size_t delimeterSize = 36)
+        {
+            std::cout << std::string(delimeterSize, delimeter) << std::endl;
+            printInfixRunner(TREE);
+            std::cout << std::endl << std::string(delimeterSize, delimeter) << std::endl;
+        }
+        void printPostfix(char delimeter = '-', size_t delimeterSize = 36)
+        {
+            std::cout << std::string(delimeterSize, delimeter) << std::endl;
+            printPostfixRunner(TREE);
+            std::cout << std::endl << std::string(delimeterSize, delimeter) << std::endl;
         }
 };
