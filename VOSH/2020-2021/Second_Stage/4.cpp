@@ -6,12 +6,9 @@
 
 using namespace std;
 
-vector<int> bfs(vector<vector<int>> g, int start)
+void bfs(vector<vector<int>> g, int start, vector<bool> &visited, vector<int> &level)
 {
-    vector<int> level(g.size(), -1);
     level[start] = 0;
-
-    vector<bool> visited(g.size(), false);
     visited[start] = true;
 
     vector<int> queue;
@@ -32,7 +29,6 @@ vector<int> bfs(vector<vector<int>> g, int start)
             }
         }
     }
-    return level;
 }
 
 int main()
@@ -70,22 +66,20 @@ int main()
     //     cout << endl;
     // }
 
+    vector<int> level(g.size(), -1);
+    vector<bool> visited(g.size(), false);
     vector<int> res;
     for (int r : roots)
     {
-        vector<int> level = bfs(g, r);
+        bfs(g, r, visited, level);
         for (int i = 0; i < level.size(); i++)
         {
-            // cout << level[i] << " " << i << " " << m + 1 << endl;
-            if (level[i] == m + 1)
+            if ((level[i] == m + 1) && (find(res.begin(), res.end(), i) == res.end()))
                 res.push_back(i);
         }
-        level.clear();
     }
     sort(res.begin(), res.end());
     for (int i : res)
-    {
         cout << i + 1 << " ";
-    }
     cout << endl;
 }
