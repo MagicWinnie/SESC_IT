@@ -1,3 +1,4 @@
+// Queue implementation
 #include <iostream>
 #include "queue_custom.h"
 

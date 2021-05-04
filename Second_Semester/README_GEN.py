@@ -24,7 +24,8 @@ for k, f in enumerate(FILES):
     temp = list(map(lambda x: x[0].capitalize() + x[1:], temp))
     temp = list(map(lambda x: x.replace('\n', ''), temp))
     temp_str = '. '.join(temp)
-    if temp_str[-1] != '.': temp_str += '.'
+    if len(temp) == 0: temp_str += f.split('.')[0] + '.'
+    elif temp_str[-1] != '.': temp_str += '.'
     result += "{}. [{}]({})\n".format(k + 1, temp_str, f)
 
 with open("README.md", "w", encoding="utf-8", errors="xmlcharrefreplace") as output_file:

@@ -3,6 +3,7 @@
 <li><a href="bintree.cpp">Simple binary tree.</a></li>
 <li><a href="calculationsOnStack.cpp">Calculations on a stack. Count the value by its postfix notation.</a></li>
 <li><a href="CircularBuffer.cpp">Circular buffer.</a></li>
+<li><a href="custom_queue_runner.cpp">Queue implementation.</a></li>
 <li><a href="dijsktra_permutation.cpp">Generate next alphabetic permutation using dijsktra algorithm.</a></li>
 <li><a href="dijsktra_shortest_path.cpp">Shortest path in graph using dijsktra algorithm.</a></li>
 <li><a href="ege25.cpp">Task #25 from USE on IT.</a></li>
