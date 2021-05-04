@@ -24,14 +24,7 @@ unsigned long long solve(unsigned long long p, unsigned long long v)
     unsigned long long a = max(p, v);
     unsigned long long b = min(p, v);
 
-    if (a != 7)
-        return C(a + b - 1, b);
-    else
-    {
-        return C(b + b, b);
-    }
-
-    // return C(p + v - 1, max(p, v) - 1);
+    return C(p + v - 1, max(p, v) - 1);
 }
 
 int main()
