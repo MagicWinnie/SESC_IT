@@ -31,3 +31,8 @@ for k, f in enumerate(FILES):
 with open("README.md", "w", encoding="utf-8", errors="xmlcharrefreplace") as output_file:
     output_file.write(markdown.markdown(result))
     
+BIN_FILENAMES = ('o', 'exe')
+FILES_BIN = list(filter(lambda x: x.split('.')[-1] in BIN_FILENAMES, os.listdir('.')))
+
+for i in FILES_BIN:
+    os.remove(i)
