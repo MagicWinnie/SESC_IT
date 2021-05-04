@@ -21,11 +21,18 @@ void bfs(vector<vector<int>> g, int start, vector<bool> &visited, vector<int> &l
         for (int i = 0; i < g[v].size(); i++)
         {
             int b = g[v][i];
-            if (!visited[b])
+            if (true)//!visited[b])
             {
-                visited[b] = true;
                 queue.push_back(b);
-                level[b] = level[v] + 1;
+                // for (int _i = 0; _i < queue.size(); _i++)
+                //     cout << queue[_i] << " ";
+                // cout << endl;
+                visited[b] = true;
+                // cout << level[b] << " " << level[v] + 1 << endl;
+                if (level[b] < level[v] + 1)
+                {
+                    level[b] = level[v] + 1;
+                }
             }
         }
     }
@@ -74,6 +81,17 @@ int main()
         bfs(g, r, visited, level);
         for (int i = 0; i < level.size(); i++)
         {
+            // cout << "LEVEL\n\t";
+            // for (int i = 0; i < g.size(); i++)
+            //     cout << level[i] << " ";
+            // cout << endl;
+            
+            // cout << "VISITED\n\t";
+            // for (int i = 0; i < g.size(); i++)
+            //     cout << visited[i] << " ";
+            // cout << endl;
+
+            // cout << r << " " << level[i] << " " << m + 1 << " " << i << endl;
             if ((level[i] == m + 1) && (find(res.begin(), res.end(), i) == res.end()))
                 res.push_back(i);
         }
