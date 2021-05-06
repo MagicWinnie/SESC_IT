@@ -20,6 +20,7 @@ int main()
     // tree.add("21");
     // tree.add("08");
     // tree.add("17");
+    tree.printPrefix();
     tree.add("*");
     tree.add("4");
     tree.add("7");

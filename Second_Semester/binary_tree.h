@@ -55,6 +55,8 @@ class BinaryTree
                 t->right = new tree;
                 t->left->left = NULL;
                 t->left->right = NULL;
+                t->right->left = NULL;
+                t->right->right = NULL;
             } else if (x < t->data)
             {   
                 if (t->left != NULL)
