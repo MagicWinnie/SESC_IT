@@ -19,7 +19,7 @@ int main()
         qc.push(temp);
     }
     cout << "----------" << endl;
-    for (int i = 0; i < n; i++)
+    while(!qc.empty())
     {
         cout << qc.pop() << endl;
     }
