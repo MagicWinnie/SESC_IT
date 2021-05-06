@@ -20,7 +20,7 @@ int main()
     tree.add("21");
     tree.add("08");
     tree.add("17");
-    tree.printPrefix();
+    
     // tree.add("4");
     // tree.add("*");
     // tree.add("7");
@@ -28,11 +28,13 @@ int main()
     // tree.add("6");
     // tree.add("-");
     // tree.add("5");
+    
     // tree.add(12);
     // tree.add(87);
     // tree.add(5);
     // tree.add(2);
     // tree.add(32);
+    
     tree.printTree('-', columns, true);
     tree.printPrefix();
     tree.printInfix();

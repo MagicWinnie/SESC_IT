@@ -133,7 +133,7 @@ public:
     }
     ~BinaryTree()
     {
-        destroyTree(TREE);
+        destroyTree(TREE); 
     }
     void printTree(char delimeter = '-', size_t delimeterSize = 36, bool UTF = true)
     {
