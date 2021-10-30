@@ -6,15 +6,14 @@ unsigned long long factorial(int n)
         return 1;
     unsigned long long res = 1;
     for (int i = 1; i <= n; i++)
-    {
         res *= i;
-    }
-    return res; 
-} 
+    return res;
+}
 
 int main()
 {
     int n;
     scanf("%d", &n);
     printf("%d\n", factorial(n));
+    return 0;
 }

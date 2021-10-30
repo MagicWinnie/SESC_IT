@@ -4,9 +4,9 @@
 bool isPrime(int n)
 {
     int d = 2;
-    while (d*d <= n && n % d != 0)
+    while (d * d <= n && n % d != 0)
         d++;
-    return d*d > n;
+    return d * d > n;
 }
 
 int main()
@@ -18,5 +18,5 @@ int main()
         if (isPrime(i))
             printf("%d\n", i);
     }
-        
+    return 0;
 }

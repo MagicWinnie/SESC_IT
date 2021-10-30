@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "str_lib.h"
 
-size_t strlen(const char* s)
+size_t strlen(const char *s)
 {
     size_t length = 0;
     while (s[length] != '\0')
@@ -20,28 +20,32 @@ char *strcpy(char *toHere, const char *fromHere)
 
 int strcmp(const char *s1, const char *s2)
 {
-    int i = 0; 
-    while (s1[i] != '\0') 
-    { 
-        if (s1[i] == '\0') return 1;
-        else if (s1[i] < s2[i]) return -1;
-        else if (s1[i] > s2[i]) return 1;
-        i++; 
+    int i = 0;
+    while (s1[i] != '\0')
+    {
+        if (s1[i] == '\0')
+            return 1;
+        else if (s1[i] < s2[i])
+            return -1;
+        else if (s1[i] > s2[i])
+            return 1;
+        i++;
     }
     if (s2[i] == '\0')
         return 0;
-    else 
+    else
         return -1;
 }
 
 char *strcat(char *dest, const char *src)
 {
     int i, j;
-	i = strlen(dest);
-	for (j = 0; src[j] != '\0'; i++, j++) {
-		dest[i] = src[j];
-	}
-	dest[i] = '\0';
+    i = strlen(dest);
+    for (j = 0; src[j] != '\0'; i++, j++)
+    {
+        dest[i] = src[j];
+    }
+    dest[i] = '\0';
     return dest;
 }
 
@@ -56,9 +60,10 @@ char *strstr(const char *haystack, const char *needle)
             haystack++;
             p++;
         }
-        if (!*p) return b;
+        if (!*p)
+            return b;
 
         haystack = b + 1;
-    }    
+    }
     return NULL;
 }

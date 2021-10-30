@@ -25,5 +25,7 @@ int main()
         else if (c * c > a * a + b * b)      printf("Scalene\n");
         else                                 printf("Acute\n");
     } 
-    else printf("Impossible\n");        
+    else
+        printf("Impossible\n");        
+    return 0;
 }

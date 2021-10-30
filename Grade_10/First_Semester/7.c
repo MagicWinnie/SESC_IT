@@ -4,12 +4,6 @@ int main()
 {
     int a, b;
     scanf("%d %d", &a, &b);
-    
-    if (a > b)
-        printf("Max: %d", a); 
-    else
-        printf("Max: %d", b); 
-
-    printf("\n");
-        
+    printf("%d\n", (a > b) ? a : b);
+    return 0;
 }

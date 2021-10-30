@@ -15,5 +15,5 @@ int main()
     printf("%d %d\n", x, y);
     swap(&x, &y);
     printf("%d %d\n", x, y);
+    return 0;
 }
-

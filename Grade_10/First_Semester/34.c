@@ -1,46 +1,53 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
-    int i = 0, k = 1, p = 0, n;
+    int n, m, len_n, len_m, k = 1, p_n = 0, p_m = 0;
     scanf("%d", &n);
-    int matrix[n][n];
-    int len = n;
+    m = n;
 
-    while (k <= n*n)                      
+    int **arr = (int **)calloc(n, sizeof(int *));
+    for (int i = 0; i < n; i++)
+        arr[i] = (int *)calloc(m, sizeof(int));
+    len_n = n - 1;
+    len_m = m - 1;
+
+    while (k <= n * m)
     {
-        for (i = p; i < len; i++)
+        for (int j = p_m; j <= len_m; j++)
         {
-            matrix[p][i] = k++-1;
+            if (!arr[p_n][j])
+                arr[p_n][j] = (k++ - 1);
         }
-        for (i = p+1; i < len; i++)
+        p_n++;
+        for (int i = p_n; i <= len_n; i++)
         {
-            matrix[i][len-1] = k++-1;
+            if (!arr[i][len_m])
+                arr[i][len_m] = (k++ - 1);
         }
-        for (i = len-2; i >= p; i--) 
+        len_m--;
+        for (int j = len_m; j >= p_m; j--)
         {
-            matrix[len-1][i] = k++-1;
+            if (!arr[len_n][j])
+                arr[len_n][j] = (k++ - 1);
         }
-        for (i = len-2; i > p; i--)
+        len_n--;
+        for (int i = len_n; i >= p_n; i--)
         {
-            matrix[i][p] = k++-1;
+            if (!arr[i][p_m])
+                arr[i][p_m] = (k++ - 1);
         }
-        p++;
-        len--;
-        
+        p_m++;
     }
-    if (!n%2)
-    {
-        matrix[(n+1)/2][(n+1)/2] = n*n;
-    }
-
-
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
-        {
-            printf("%d ", matrix[i][j]);
-        }
+        for (int j = 0; j < m; j++)
+            printf("%d ", arr[i][j]);
         printf("\n");
     }
+    for (int i = 0; i < n; i++)
+        free(arr[i]);
+    free(arr);
+    return 0;
 }

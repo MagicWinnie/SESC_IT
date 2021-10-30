@@ -15,7 +15,7 @@ int main()
                     {
                         for (int f = 0; f <= 9; f++)
                         {
-                            if (a+b+c == d+e+f)
+                            if (a + b + c == d + e + f)
                                 count++;
                         }
                     }
@@ -23,8 +23,6 @@ int main()
             }
         }
     }
-    printf("%d", count);
-
-    printf("\n");
-        
+    printf("%d\n", count);
+    return 0;
 }

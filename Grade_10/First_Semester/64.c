@@ -12,14 +12,14 @@ void print(unsigned long long *arr, int n)
 int main()
 {
     int n, k;
-    
+
     FILE *fin = fopen("64.txt", "r");
     FILE *fout = fopen("64.out", "w");
 
     fscanf(fin, "%d %d", &n, &k);
     fclose(fin);
 
-    unsigned long long* arr = (unsigned long long*)calloc(n + 1, sizeof(unsigned long long));
+    unsigned long long *arr = (unsigned long long *)calloc(n + 1, sizeof(unsigned long long));
 
     if (k > n)
     {
@@ -31,8 +31,10 @@ int main()
         fprintf(fout, "K or N cannot be lower than 0\n");
         return -1;
     }
-    if (k == 0 || k == n) fprintf(fout, "1\n");
-    else {
+    if (k == 0 || k == n)
+        fprintf(fout, "1\n");
+    else
+    {
         arr[0] = 1;
         for (int j = 1; j <= n; j++)
         {

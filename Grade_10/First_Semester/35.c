@@ -2,24 +2,24 @@
 #include <math.h>
 #include <stdbool.h>
 
-double sum(double a, double b) 
-{ 
-    return a+b; 
+double sum(double a, double b)
+{
+    return a + b;
 }
 
-double sub(double a, double b) 
-{ 
-    return a-b; 
+double sub(double a, double b)
+{
+    return a - b;
 }
 
-double mul(double a, double b) 
-{ 
-    return a*b; 
+double mul(double a, double b)
+{
+    return a * b;
 }
 
-double division(double a, double b) 
-{ 
-    return a/b; 
+double division(double a, double b)
+{
+    return a / b;
 }
 
 int main()
@@ -30,4 +30,5 @@ int main()
     printf("%lf\n", sub(a, b));
     printf("%lf\n", mul(a, b));
     printf("%lf\n", division(a, b));
+    return 0;
 }

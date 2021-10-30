@@ -1,67 +1,121 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
-struct dateStruct 
-{ 
-    int d, m, y; 
-}; 
-  
-int monthDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+int month_days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-int isLeap(struct dateStruct d)
+struct Date
 {
-    if ((d.y % 4 == 0 && d.y % 100 != 0) || d.y % 400 == 0)
-        return 1;
+    int day;
+    int month;
+    int year;
+    bool isLeapYear;
+};
+
+void swap(struct Date *A, struct Date *B)
+{
+    struct Date temp = *A;
+    *A = *B;
+    *B = temp;
+}
+
+bool isLeap(int year)
+{
+    if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+        return true;
+    return false;
+}
+
+bool checkDays(struct Date date)
+{
+    int numberOfDays = month_days[date.month - 1];
+    if (date.month == 2)
+        numberOfDays = (date.isLeapYear) ? 29 : 28;
+
+    if (date.day < 1 || date.day > numberOfDays)
+        return false;
+    return true;
+}
+
+int countDaysInMonths(int month_1, int month_2, bool isLeap)
+{
+    int count = 0;
+    for (int m = month_1 + 1; m < month_2; m++)
+        count += ((m == 2) ? ((isLeap) ? 29 : 28) : (month_days[m - 1]));
+    return count;
+}
+
+int main()
+{
+    struct Date date_1, date_2;
+    scanf("%d %d %d", &date_1.day, &date_1.month, &date_1.year);
+    scanf("%d %d %d", &date_2.day, &date_2.month, &date_2.year);
+
+    date_1.isLeapYear = isLeap(date_1.year);
+    date_2.isLeapYear = isLeap(date_2.year);
+
+    // sanity check
+    if (date_1.year > date_2.year)
+        swap(&date_1, &date_2);
+    if (date_1.year == date_2.year)
+    {
+        if (date_1.month > date_2.month)
+            swap(&date_1, &date_2);
+        if (date_1.month == date_2.month && date_1.day > date_2.day)
+            swap(&date_1, &date_2);
+    }
+    if (date_1.year < 1 || date_1.year > 2012)
+    {
+        printf("ERROR");
+        return 0;
+    }
+    if (date_2.year < 1 || date_2.year > 2012)
+    {
+        printf("ERROR");
+        return 0;
+    }
+    if (date_1.month < 1 || date_1.month > 12)
+    {
+        printf("ERROR");
+        return 0;
+    }
+    if (date_2.month < 1 || date_2.month > 12)
+    {
+        printf("ERROR");
+        return 0;
+    }
+    if (!checkDays(date_1))
+    {
+        printf("ERROR");
+        return 0;
+    }
+    if (!checkDays(date_2))
+    {
+        printf("ERROR");
+        return 0;
+    }
+
+    int output = 0;
+    for (int y = date_1.year + 1; y < date_2.year; y++)
+        output += (isLeap(y)) ? 366 : 365;
+    if (date_1.year != date_2.year)
+    {
+        output += countDaysInMonths(date_1.month, 12 + 1, date_1.isLeapYear); // count days in (date_1.month, 12]
+        output += countDaysInMonths(0, date_2.month, date_2.isLeapYear);      // count days in [1, date_2.month)
+    }
+    else
+        output += countDaysInMonths(date_1.month, date_2.month, date_1.isLeapYear); // count days in (date_1.month, date_2.month)
+
+    if (date_1.year == date_2.year && date_1.month == date_2.month)
+        output += date_2.day - date_1.day;
+    else
+    {
+        int days = month_days[date_1.month - 1];
+        if (date_1.month == 2)
+            days = (date_1.isLeapYear) ? 29 : 28;
+        output += days - date_1.day;
+        output += date_2.day;
+    }
+    printf("%d\n", output);
     return 0;
 }
-
-void countLeapYears(struct dateStruct d1, struct dateStruct d2, int *leapYears, int *nonLeapYears) 
-{
-    while (1)
-    {
-        d1.y++;
-        if (d1.y >= d2.y) break;
-        if (isLeap(d1) == 1)
-            *leapYears += 1;
-        else
-            *nonLeapYears += 1;
-    }
-}
-
-int getDifference(struct dateStruct d1, struct dateStruct d2)
-{
-    int total = 0, leapYears = 0, nonLeapYears = 0;
-    countLeapYears(d1, d2, &leapYears, &nonLeapYears);
-    total += 366*leapYears + 365*nonLeapYears;
-    if (d1.y == d2.y)
-    {
-        if (isLeap(d1)) monthDays[1] = 29;
-        for (int i = d1.m; i < d2.m - 1; i++)
-            total += monthDays[i];
-        total += monthDays[d1.m-1] - d1.d;
-        total += d2.d;
-        return total;
-    } else {
-        if (isLeap(d1)) monthDays[1] = 29;
-        total += monthDays[d1.m - 1] - d1.d;
-        for (int i = d1.m; i < 12; i++)
-            total += monthDays[i];
-        if (isLeap(d2)) monthDays[1] = 29;
-        else monthDays[1] = 28;
-        for (int i = 0; i < d2.m - 1; i++)
-            total += monthDays[i];
-        total += d2.d;
-        return total;
-    }
-}
-  
-int main() 
-{
-    int d1, m1, y1, d2, m2, y2;
-    scanf("%d %d %d %d %d %d", &d1, &m1, &y1, &d2, &m2, &y2);
-
-    struct dateStruct ds1 = {d1, m1, y1}; 
-    struct dateStruct ds2 = {d2, m2, y2};
-    printf("%d\n", getDifference(ds1, ds2)); 
-
-    return 0; 
-} 

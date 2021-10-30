@@ -9,7 +9,7 @@ int main()
     for (int i = 0; i < size; i++)
     {
         a = i;
-        for (int j = i+1; j < size; j++)
+        for (int j = i + 1; j < size; j++)
         {
             if (arr[j] < arr[a])
                 a = j;
@@ -23,4 +23,5 @@ int main()
         printf("%d ", arr[i]);
 
     printf("\n");
+    return 0;
 }

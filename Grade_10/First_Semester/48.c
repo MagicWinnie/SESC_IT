@@ -14,10 +14,7 @@ int main()
     srand(time(NULL));
 
     for (int i = 0; i < size; i++)
-    {
         arr[i] = (rand() % (10 - 1 + 1)) + 1;
-    }
-
     for (int i = 0; i < size; i++)
     {
         sum += arr[i];
@@ -26,10 +23,9 @@ int main()
 
     //printing array
     for (int i = 0; i < size; i++)
-    {
         printf("%d ", arr[i]);
-    }
 
-    printf("\nArithmetic mean: %lf\n", (double)sum/size);
-    printf("Geometric mean: %lf\n", pow((double)mul, (double)1/size));
+    printf("\nArithmetic mean: %lf\n", (double)sum / size);
+    printf("Geometric mean: %lf\n", pow((double)mul, (double)1 / size));
+    return 0;
 }

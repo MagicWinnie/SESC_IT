@@ -6,11 +6,11 @@ int main()
     while (1)
     {
         n += i;
-        if (n > 100) break;
+        if (n > 100)
+            break;
         printf("%d ", n);
         i++;
     }
-
     printf("\n");
-        
+    return 0;
 }

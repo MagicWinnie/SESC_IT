@@ -2,18 +2,15 @@
 #include <stdint.h>
 #include <math.h>
 
-
 unsigned long long int factorial(int n)
 {
     if (n == 0)
         return 1;
     unsigned long long int res = 1;
     for (int i = 1; i <= n; i++)
-    {
         res *= i;
-    }
-    return res; 
-} 
+    return res;
+}
 
 int main()
 {
@@ -21,9 +18,8 @@ int main()
     scanf("%lf", &n);
 
     for (int i = 0; i <= 20; i++)
-    {
-        res += (double)pow(n, i)/(double)factorial(i);
-    }
+        res += (double)pow(n, i) / (double)factorial(i);
 
-    printf("%lf", res);
+    printf("%lf\n", res);
+    return 0;
 }

@@ -5,7 +5,7 @@
 
 int main()
 {
-    int *a = (int*)malloc(sizeof(int));
+    int *a = (int *)malloc(sizeof(int));
     char *b = a;
     // *(b + 0) = 21;
     // *(b + 1) = 205;
@@ -16,7 +16,7 @@ int main()
     {
         *(b + i) = last % 256;
         last /= 256;
-    }   
+    }
     printf("%d\n", *a);
     return 0;
 }
